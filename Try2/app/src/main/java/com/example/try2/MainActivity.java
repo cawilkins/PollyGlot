@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         {
             @Override
             public void onClick(View v) {
-                String apikey = "6636ac7838bb4b71a89d01e5e1dd0ede";
                 EditText edtxt = findViewById(R.id.editTextTextPersonName);
                 String intext = edtxt.getText().toString();
                 try {
