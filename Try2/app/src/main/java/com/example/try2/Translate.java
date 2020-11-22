@@ -1,20 +1,21 @@
 package com.example.try2;
 
+import com.squareup.okhttp.MediaType;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
+
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import com.squareup.okhttp.*;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-//import okhttp3.MediaType;
-//import okhttp3.Request;
-//import okhttp3.RequestBody;
-//import okhttp3.Response;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+
 
 //used in Main Activity
 public class Translate {
