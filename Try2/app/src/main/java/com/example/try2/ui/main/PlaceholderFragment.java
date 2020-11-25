@@ -1,4 +1,3 @@
-
 package com.example.try2.ui.main;
 
 import android.os.Bundle;
@@ -15,8 +14,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.try2.R;
 
-/*
-  A placeholder fragment containing a simple view.
+/**
+ * A placeholder fragment containing a simple view.
  */
 public class PlaceholderFragment extends Fragment {
 
