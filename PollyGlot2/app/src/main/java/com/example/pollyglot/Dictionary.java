@@ -41,6 +41,7 @@ public class Dictionary extends AppCompatActivity {
             }
         });
     }
+
 }
 class TranslateAsyncTask extends AsyncTask<String, Void, String>{
     @Override
