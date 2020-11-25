@@ -47,8 +47,9 @@ class TranslateAsyncTask extends AsyncTask<String, Void, String>{
     @Override
     protected String doInBackground(String... strings) {
         Translate translate = new Translate();
+        String transresult = null;
         try {
-            String transresult = translate.doTranslation(strings[0]);
+            transresult = translate.doTranslation(strings[0]);
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (IOException e) {
