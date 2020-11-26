@@ -35,31 +35,30 @@ public class Dictionary extends AppCompatActivity {
         translate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText edtxt = findViewById(R.id.editTextTextPersonName);
-                String intext = edtxt.getText().toString();
-                new TranslateAsyncTask().execute(intext);
+                thread.start();
             }
         });
     }
 
-}
-class TranslateAsyncTask extends AsyncTask<String, Void, String>{
-    @Override
-    protected String doInBackground(String... strings) {
-        Translate translate = new Translate();
-        String transresult = null;
-        try {
-            transresult = translate.doTranslation(strings[0]);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+    Thread thread = new Thread(new Runnable(){
+
+        @Override
+        public void run() {
+            EditText edtxt = findViewById(R.id.editTextTextPersonName);
+            String intext = edtxt.getText().toString();
+            String transres;
+            try {
+                transres = Translate.doTranslation(intext);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            translation.setText(transres);
         }
-        return transresult;
-    }
-    @Override
-    protected void onPostExecute(String transresult){
-        translation.setText(transresult);
-        super.onPostExecute(transresult);
-    }
+    });
 }
+
+
+
+
