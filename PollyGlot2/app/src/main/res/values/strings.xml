@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PollyGlot</string>
+    <string name="aleph">ا</string>
+    <string name="be">ب</string>
 </resources>
