@@ -6,35 +6,29 @@
     android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:layout_margin="@dimen/card_margin"
         android:elevation="3dp"
-        card_view:cardCornerRadius="@dimen/card_album_radius"
-        android:id="@+id/card_view">
+        card_view:cardBackgroundColor="@color/card_background"
+        card_view:cardCornerRadius="@dimen/card_album_radius">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/name_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:paddingLeft="@dimen/card_title_padding"
-                android:paddingTop="@dimen/card_title_padding"
-                android:paddingRight="@dimen/card_title_padding"
-                android:text="Name: "
-                android:textColor="@color/design_default_color_primary"
-                android:textSize="@dimen/card_title" />
-
-            <TextView
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/name_title"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
                 android:gravity="center_horizontal"
                 android:paddingLeft="@dimen/card_title_padding"
                 android:paddingTop="@dimen/card_title_padding"
@@ -44,10 +38,29 @@
                 android:textSize="@dimen/card_content" />
 
             <TextView
+                android:id="@+id/name_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="80dp"
+                android:gravity="center_horizontal"
+                android:paddingLeft="@dimen/card_title_padding"
+                android:paddingTop="@dimen/card_title_padding"
+                android:paddingRight="@dimen/card_title_padding"
+                android:text="Name: "
+                android:textColor="@color/design_default_color_primary"
+                android:textSize="@dimen/card_title" />
+
+            <TextView
                 android:id="@+id/sound_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/name"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
                 android:gravity="center_horizontal"
                 android:paddingLeft="@dimen/card_title_padding"
                 android:paddingTop="@dimen/card_title_padding"
@@ -61,6 +74,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/sound_title"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
                 android:gravity="center_horizontal"
                 android:paddingLeft="@dimen/card_title_padding"
                 android:paddingTop="@dimen/card_title_padding"
