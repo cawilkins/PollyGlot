@@ -130,40 +130,40 @@ public class CardFrontFragment extends Fragment {
         item = new CardFrontModel("ظ");
         cardsList.add(item);
 
-        item = new CardFrontModel("21");
+        item = new CardFrontModel("ع");
         cardsList.add(item);
 
-        item = new CardFrontModel("22");
+        item = new CardFrontModel("غ");
         cardsList.add(item);
 
-        item = new CardFrontModel("23");
+        item = new CardFrontModel("ف");
         cardsList.add(item);
 
-        item = new CardFrontModel("24");
+        item = new CardFrontModel("ق");
         cardsList.add(item);
 
-        item = new CardFrontModel("25");
+        item = new CardFrontModel("ک");
         cardsList.add(item);
 
-        item = new CardFrontModel("26");
+        item = new CardFrontModel("گ");
         cardsList.add(item);
 
-        item = new CardFrontModel("27");
+        item = new CardFrontModel( "ل");
         cardsList.add(item);
 
-        item = new CardFrontModel("28");
+        item = new CardFrontModel("م");
         cardsList.add(item);
 
-        item = new CardFrontModel("29");
+        item = new CardFrontModel("ن");
         cardsList.add(item);
 
-        item = new CardFrontModel("30");
+        item = new CardFrontModel("و");
         cardsList.add(item);
 
-        item = new CardFrontModel("31");
+        item = new CardFrontModel("ه");
         cardsList.add(item);
 
-        item = new CardFrontModel("32");
+        item = new CardFrontModel("ی");
         cardsList.add(item);
     }
 
