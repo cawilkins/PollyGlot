@@ -63,6 +63,90 @@ public class Flashcards extends AppCompatActivity {
         item = new CardModel("te", "t");
         cardsList.add(item);
 
+        item = new CardModel("se", "s");
+        cardsList.add(item);
+
+        item = new CardModel("jim", "j");
+        cardsList.add(item);
+
+        item = new CardModel("che", "ch");
+        cardsList.add(item);
+
+        item = new CardModel("hejimi", "h");
+        cardsList.add(item);
+
+        item = new CardModel("khe", "kh");
+        cardsList.add(item);
+
+        item = new CardModel("daal", "d");
+        cardsList.add(item);
+
+        item = new CardModel("zaal", "z");
+        cardsList.add(item);
+
+        item = new CardModel("re", "r");
+        cardsList.add(item);
+
+        item = new CardModel("ze", "z");
+        cardsList.add(item);
+
+        item = new CardModel("zhe", "zh");
+        cardsList.add(item);
+
+        item = new CardModel("sin", "s");
+        cardsList.add(item);
+
+        item = new CardModel("shin", "sh");
+        cardsList.add(item);
+
+        item = new CardModel("saad", "s");
+        cardsList.add(item);
+
+        item = new CardModel("zaad", "z");
+        cardsList.add(item);
+
+        item = new CardModel("taa", "t");
+        cardsList.add(item);
+
+        item = new CardModel("zaa", "z");
+        cardsList.add(item);
+
+        item = new CardModel("'", "ein");
+        cardsList.add(item);
+
+        item = new CardModel("ghein", "gh");
+        cardsList.add(item);
+
+        item = new CardModel("fe", "f");
+        cardsList.add(item);
+
+        item = new CardModel("qaaf", "q");
+        cardsList.add(item);
+
+        item = new CardModel("kaaf", "k");
+        cardsList.add(item);
+
+        item = new CardModel("gaaf", "g");
+        cardsList.add(item);
+
+        item = new CardModel("laam", "l");
+        cardsList.add(item);
+
+        item = new CardModel("mim", "m");
+        cardsList.add(item);
+
+        item = new CardModel("nun", "n");
+        cardsList.add(item);
+
+        item = new CardModel("vaav", "v/ /u");
+        cardsList.add(item);
+
+        item = new CardModel("hedocheshm", "h");
+        cardsList.add(item);
+
+        item = new CardModel("ye", "y/ /ii");
+        cardsList.add(item);
+
         adapter.notifyDataSetChanged();
     }
 }
