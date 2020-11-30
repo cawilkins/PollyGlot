@@ -1,152 +1,86 @@
 package com.example.pollyglot;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.AdapterViewFlipper;
+import android.widget.Button;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Flashcards extends AppCompatActivity {
 
-    private List<CardModel> cardsList;
-    private CardsAdapter adapter;
+    private Button flipBtn;
+    private Fragment fragment;
     private AdapterViewFlipper adapterViewFlipper;
+    private int cardId;
+    private boolean showingBack = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcards);
 
-        // Initialize adapter
-        cardsList = new ArrayList<>();
-        adapter = new CardsAdapter(this, cardsList);
+        // Display card front by default
+        if (savedInstanceState == null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.frame_container, new CardFrontFragment())
+                    .commit();
+        }
 
-        // Initialize ViewFlipper
-        adapterViewFlipper = (AdapterViewFlipper) findViewById(R.id.adapterViewFlipper);
-        adapterViewFlipper.setAdapter(adapter);
-        adapterViewFlipper.setFlipInterval(2600);
-
-        // Prepare cards
-        InsertDataIntoCards();
-
-        // Gesture event
-        adapterViewFlipper.setOnTouchListener(new OnSwipeTouchListener(this) {
-            public void onSwipeRight() {
-                //Toast.makeText(MainActivity.this, "right", Toast.LENGTH_SHORT).show();
-                adapterViewFlipper.setInAnimation(Flashcards.this, R.animator.left_in);
-                adapterViewFlipper.setOutAnimation(Flashcards.this, R.animator.right_out);
-                adapterViewFlipper.showPrevious();
-            }
-            public void onSwipeLeft() {
-                //Toast.makeText(MainActivity.this, "left", Toast.LENGTH_SHORT).show();
-                adapterViewFlipper.setInAnimation(Flashcards.this, R.animator.right_in);
-                adapterViewFlipper.setOutAnimation(Flashcards.this, R.animator.left_out);
-                adapterViewFlipper.showNext();
+        flipBtn = findViewById(R.id.flip_btn);
+        flipBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragment = getSupportFragmentManager().findFragmentById(R.id.frame_container);
+                adapterViewFlipper = fragment.getView().findViewById(R.id.adapterViewFlipper);
+                cardId = adapterViewFlipper.getDisplayedChild();
+                flipCard();
             }
         });
     }
 
-    private void InsertDataIntoCards() {
+    private void flipCard() {
+        if (showingBack) {
+            getSupportFragmentManager().popBackStack();
+            showingBack = false;
+            return;
+        }
 
-        CardModel item = new CardModel("alef", "aa");
-        cardsList.add(item);
+        // Flip to the back.
 
-        item = new CardModel("be", "b");
-        cardsList.add(item);
+        showingBack = true;
 
-        item = new CardModel("pe", "p");
-        cardsList.add(item);
+        // Create and commit a new fragment transaction that adds the fragment for
+        // the back of the card, uses custom animations, and is part of the fragment
+        // manager's back stack.
 
-        item = new CardModel("te", "t");
-        cardsList.add(item);
+        getSupportFragmentManager()
+                .beginTransaction()
 
-        item = new CardModel("se", "s");
-        cardsList.add(item);
+                // Replace the default fragment animations with animator resources
+                // representing rotations when switching to the back of the card, as
+                // well as animator resources representing rotations when flipping
+                // back to the front (e.g. when the system Back button is pressed).
+                .setCustomAnimations(
+                        R.animator.card_flip_right_in,
+                        R.animator.card_flip_right_out,
+                        R.animator.card_flip_left_in,
+                        R.animator.card_flip_left_out)
 
-        item = new CardModel("jim", "j");
-        cardsList.add(item);
+                // Replace any fragments currently in the container view with a
+                // fragment representing the next page (indicated by the
+                // just-incremented currentPage variable).
+                .replace(R.id.frame_container, new CardBackFragment(cardId))
 
-        item = new CardModel("che", "ch");
-        cardsList.add(item);
+                // Add this transaction to the back stack, allowing users to press
+                // Back to get to the front of the card.
+                .addToBackStack(null)
 
-        item = new CardModel("hejimi", "h");
-        cardsList.add(item);
-
-        item = new CardModel("khe", "kh");
-        cardsList.add(item);
-
-        item = new CardModel("daal", "d");
-        cardsList.add(item);
-
-        item = new CardModel("zaal", "z");
-        cardsList.add(item);
-
-        item = new CardModel("re", "r");
-        cardsList.add(item);
-
-        item = new CardModel("ze", "z");
-        cardsList.add(item);
-
-        item = new CardModel("zhe", "zh");
-        cardsList.add(item);
-
-        item = new CardModel("sin", "s");
-        cardsList.add(item);
-
-        item = new CardModel("shin", "sh");
-        cardsList.add(item);
-
-        item = new CardModel("saad", "s");
-        cardsList.add(item);
-
-        item = new CardModel("zaad", "z");
-        cardsList.add(item);
-
-        item = new CardModel("taa", "t");
-        cardsList.add(item);
-
-        item = new CardModel("zaa", "z");
-        cardsList.add(item);
-
-        item = new CardModel("'", "ein");
-        cardsList.add(item);
-
-        item = new CardModel("ghein", "gh");
-        cardsList.add(item);
-
-        item = new CardModel("fe", "f");
-        cardsList.add(item);
-
-        item = new CardModel("qaaf", "q");
-        cardsList.add(item);
-
-        item = new CardModel("kaaf", "k");
-        cardsList.add(item);
-
-        item = new CardModel("gaaf", "g");
-        cardsList.add(item);
-
-        item = new CardModel("laam", "l");
-        cardsList.add(item);
-
-        item = new CardModel("mim", "m");
-        cardsList.add(item);
-
-        item = new CardModel("nun", "n");
-        cardsList.add(item);
-
-        item = new CardModel("vaav", "v/ /u");
-        cardsList.add(item);
-
-        item = new CardModel("hedocheshm", "h");
-        cardsList.add(item);
-
-        item = new CardModel("ye", "y/ /ii");
-        cardsList.add(item);
-
-        adapter.notifyDataSetChanged();
+                // Commit the transaction.
+                .commit();
     }
+
 }
