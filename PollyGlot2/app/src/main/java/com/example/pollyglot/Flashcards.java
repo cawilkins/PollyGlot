@@ -34,9 +34,6 @@ public class Flashcards extends AppCompatActivity {
 
         // Gesture event
         adapterViewFlipper.setOnTouchListener(new OnSwipeTouchListener(this) {
-            public void onSwipeTop() {
-                Toast.makeText(Flashcards.this, "top", Toast.LENGTH_SHORT).show();
-            }
             public void onSwipeRight() {
                 //Toast.makeText(MainActivity.this, "right", Toast.LENGTH_SHORT).show();
                 adapterViewFlipper.setInAnimation(Flashcards.this, R.animator.left_in);
@@ -49,15 +46,10 @@ public class Flashcards extends AppCompatActivity {
                 adapterViewFlipper.setOutAnimation(Flashcards.this, R.animator.left_out);
                 adapterViewFlipper.showNext();
             }
-            public void onSwipeBottom() {
-                Toast.makeText(Flashcards.this, "bottom", Toast.LENGTH_SHORT).show();
-            }
-
         });
     }
 
     private void InsertDataIntoCards() {
-
 
         CardModel item = new CardModel("alef", "aa");
         cardsList.add(item);
