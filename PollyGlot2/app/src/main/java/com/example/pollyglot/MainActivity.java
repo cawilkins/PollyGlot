@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         dictionary = findViewById(R.id.button);
         flashcards = findViewById(R.id.button2);
         alphabet = findViewById(R.id.button3);
+        fillinblank = findViewById(R.id.button4);
         dictionary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
