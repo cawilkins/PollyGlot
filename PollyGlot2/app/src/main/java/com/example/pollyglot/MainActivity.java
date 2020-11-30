@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
     private Button dictionary;
     private Button flashcards;
     private Button alphabet;
+    private Button fillinblank;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Alphabet.class);
+                startActivity(intent);
+            }
+        });
+        fillinblank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FillinBlank.class);
                 startActivity(intent);
             }
         });
