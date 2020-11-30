@@ -39,11 +39,12 @@ public class Translate {
 
     //changes response of api to text instead of json
     private static String toText(String jsontxt) throws JSONException{
-        JSONObject jsonObject = new JSONArray(jsontxt).getJSONObject(0).getJSONArray("Translations").getJSONObject(0);
-        return jsonObject.getString("text");
+        String text = jsontxt.substring(76, jsontxt.length()-15);
+        return text;
     }
 
-    public static String doTranslation(String inputtext) throws JSONException, IOException {
+    //used in Dictionary
+    public static String doTranslation(String inputtext) throws IOException, JSONException {
         String resp;
         resp = toText(Post(inputtext));
         return resp;
