@@ -46,7 +46,7 @@ public class Dictionary extends AppCompatActivity {
         public void run() {
             EditText edtxt = findViewById(R.id.editTextTextPersonName);
             String intext = edtxt.getText().toString();
-            String transres;
+            String transres = "";
             try {
                 transres = Translate.doTranslation(intext);
             } catch (JSONException e) {

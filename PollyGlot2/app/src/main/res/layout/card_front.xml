@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/card_margin"
+        android:elevation="3dp"
+        card_view:cardCornerRadius="@dimen/card_album_radius"
+        android:id="@+id/card_view">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/symbol_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingLeft="@dimen/album_title_padding"
+                android:paddingTop="@dimen/album_title_padding"
+                android:paddingRight="@dimen/album_title_padding"
+                android:text="Symbol: "
+                android:textColor="@color/design_default_color_primary"
+                android:textSize="@dimen/card_title" />
+
+            <TextView
+                android:id="@+id/symbol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/symbol_title"
+                android:gravity="center_horizontal"
+                android:paddingLeft="@dimen/album_title_padding"
+                android:paddingTop="@dimen/album_title_padding"
+                android:paddingRight="@dimen/album_title_padding"
+                android:text="Symbol"
+                android:textColor="@color/design_default_color_primary"
+                android:textSize="@dimen/card_content" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
