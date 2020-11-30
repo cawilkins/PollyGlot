@@ -3,14 +3,14 @@ package com.example.pollyglot;
 public class CardModel {
 
     private String name;
-    private int thumbnail;
+    private String sound;
 
     public CardModel() {
     }
 
-    public CardModel(String name, int thumbnail) {
+    public CardModel(String name, String sound) {
         this.name = name;
-        this.thumbnail = thumbnail;
+        this.sound = sound;
     }
 
     public String getName() {
@@ -21,11 +21,11 @@ public class CardModel {
         this.name = name;
     }
 
-    public int getThumbnail() {
-        return thumbnail;
+    public String getSound() {
+        return sound;
     }
 
-    public void setThumbnail(int thumbnail) {
-        this.thumbnail = thumbnail;
+    public void setSound(String sound) {
+        this.sound = sound;
     }
 }

@@ -57,19 +57,18 @@ public class Flashcards extends AppCompatActivity {
     }
 
     private void InsertDataIntoCards() {
-        int[] appsCovers = new int[] {
-                R.drawable.facebook,
-                R.drawable.youtube,
-                R.drawable.twitter
-        };
 
-        CardModel item = new CardModel("Facebook App", appsCovers[0]);
+
+        CardModel item = new CardModel("alef", "aa");
         cardsList.add(item);
 
-        item = new CardModel("Youtube App", appsCovers[1]);
+        item = new CardModel("be", "b");
         cardsList.add(item);
 
-        item = new CardModel("Twitter App", appsCovers[2]);
+        item = new CardModel("pe", "p");
+        cardsList.add(item);
+
+        item = new CardModel("te", "t");
         cardsList.add(item);
 
         adapter.notifyDataSetChanged();

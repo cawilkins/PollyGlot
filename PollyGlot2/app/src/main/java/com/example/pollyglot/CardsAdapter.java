@@ -12,23 +12,23 @@ import java.util.List;
 
 class CardsAdapter extends BaseAdapter {
     private Context context;
-    private List<CardModel> appList;
+    private List<CardModel> cardList;
     LayoutInflater inflater;
 
-    public CardsAdapter(Context applicationContext, List<CardModel> appList) {
+    public CardsAdapter(Context applicationContext, List<CardModel> cardList) {
         this.context = applicationContext;
-        this.appList = appList;
+        this.cardList = cardList;
         inflater = (LayoutInflater.from(applicationContext));
     }
 
     @Override
     public int getCount() {
-        return appList.size();
+        return cardList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return appList.get(position);
+        return cardList.get(position);
     }
 
     @Override
@@ -38,20 +38,20 @@ class CardsAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        view = inflater.inflate(R.layout.card_front, parent,false);
+        view = inflater.inflate(R.layout.card_back, parent,false);
 
-        CardModel appsModel = appList.get(position);
+        CardModel cardModel = cardList.get(position);
 
         // Link those objects with their respective id's
         // that we have given in .XML file
         TextView name = (TextView) view.findViewById(R.id.name);
-        ImageView image = (ImageView) view.findViewById(R.id.thumbnail);
+        TextView sound = (TextView) view.findViewById(R.id.sound);
 
-        // Set the data in text view
-        name.setText(appsModel.getName());
+        // Set the name in text view
+        name.setText(cardModel.getName());
 
-        // Set the image in Image view
-        image.setImageResource(appsModel.getThumbnail());
+        // Set the sound in text view
+        sound.setText(cardModel.getSound());
         return view;
     }
 }
