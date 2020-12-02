@@ -1,8 +1,10 @@
 package com.example.pollyglot;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,7 @@ public class Flashcards extends AppCompatActivity {
 
     private Button flipBtn;
     private Button backBtn;
+    private Button tipBtn;
     private Fragment fragment;
     private AdapterViewFlipper adapterViewFlipper;
     private int cardId;
@@ -39,6 +42,27 @@ public class Flashcards extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Flashcards.this, MainActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        tipBtn = findViewById(R.id.tip_btn);
+        tipBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Flashcards.this);
+                builder.setMessage("Click on the Flip button to flip the card.\n\nFlip back to the symbol side to " +
+                        "continue.\n\nSwipe left to go to the next flashcard.\n\nSwipe right to go back to the previous flashcard." +
+                "\n\nClick the Back button to go back to the main page.");
+                builder.setTitle("Tips");
+                builder.setCancelable(true);
+                builder.setNeutralButton("Close", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int which){
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
 
