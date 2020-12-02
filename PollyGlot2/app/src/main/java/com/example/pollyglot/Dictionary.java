@@ -69,7 +69,3 @@ public class Dictionary extends AppCompatActivity {
         }
     }
 }
-
-
-
-

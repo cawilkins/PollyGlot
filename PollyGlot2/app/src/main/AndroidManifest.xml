@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PollyGlot"
         android:usesCleartextTraffic="true">
-        <activity android:name=".FillinBlank"></activity>
+        <activity android:name=".FillinBlank" />
+        <activity android:name=".WordDrills" />
         <activity android:name=".Alphabet" />
         <activity android:name=".Dictionary" />
         <activity android:name=".Flashcards" />

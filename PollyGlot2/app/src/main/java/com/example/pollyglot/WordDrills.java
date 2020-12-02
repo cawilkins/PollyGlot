@@ -1,8 +1,5 @@
 package com.example.pollyglot;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -11,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -18,16 +18,15 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
-public class FillinBlank extends AppCompatActivity {
+public class WordDrills extends AppCompatActivity {
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fillin_blank);
+        setContentView(R.layout.activity_word_drills);
 
         Button back;
         back = findViewById(R.id.button12);
@@ -35,7 +34,7 @@ public class FillinBlank extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {//on click, go back to main activity
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FillinBlank.this, MainActivity.class);
+                Intent intent = new Intent(WordDrills.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -46,7 +45,7 @@ public class FillinBlank extends AppCompatActivity {
         question.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(FillinBlank.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(WordDrills.this);
                 builder.setMessage("Click on the Speaker to play the audio.\n\nFrom the provided " +
                         "options, select the choice that best matches the sound.\n\nOr select None of the Above.");
                 builder.setTitle("Tips");
@@ -64,38 +63,39 @@ public class FillinBlank extends AppCompatActivity {
 
 
         HashMap<String, Integer> audioLibrary = new HashMap<String, Integer>();
-        audioLibrary.put("aleph", R.raw.alef);
-        audioLibrary.put("be", R.raw.be);
-        audioLibrary.put("pe", R.raw.pe);
-        audioLibrary.put("te", R.raw.te);
-        audioLibrary.put("se", R.raw.se);
-        audioLibrary.put("jim", R.raw.jim);
-        audioLibrary.put("che", R.raw.che);
-        audioLibrary.put("hejimi", R.raw.hejimi);
-        audioLibrary.put("khe", R.raw.khe);
-        audioLibrary.put("daal", R.raw.daal);
-        audioLibrary.put("zaal", R.raw.zaal);
-        audioLibrary.put("re", R.raw.re);
-        audioLibrary.put("ze", R.raw.ze);
-        audioLibrary.put("zhe", R.raw.zhe);
-        //audioLibrary.put("sin", R.raw.sin); //Missing this recording
-        audioLibrary.put("shin", R.raw.shin);
-        audioLibrary.put("saad", R.raw.saad);
-        audioLibrary.put("zaad", R.raw.zaad);
-        audioLibrary.put("taa", R.raw.taa);
-        audioLibrary.put("zaa", R.raw.zaa);
-        audioLibrary.put("ein", R.raw.ein);
-        audioLibrary.put("ghein", R.raw.ghein);
-        audioLibrary.put("fe", R.raw.fe);
-        audioLibrary.put("qaaf", R.raw.qaaf);
-        audioLibrary.put("kaaf", R.raw.kaaf);
-        audioLibrary.put("gaaf", R.raw.gaaf);
-        audioLibrary.put("laam", R.raw.laam);
-        audioLibrary.put("mim", R.raw.mim);
-        audioLibrary.put("nun", R.raw.nun);
-        audioLibrary.put("vaav", R.raw.vaav);
-        audioLibrary.put("hedocheshm", R.raw.hedocheshm);
-        audioLibrary.put("ye", R.raw.ye);
+        audioLibrary.put("alaan", R.raw.alaan);
+        audioLibrary.put("anglisi", R.raw.anglisi);
+        audioLibrary.put("awb", R.raw.awb);
+        audioLibrary.put("azhastam", R.raw.az_hastam);
+        audioLibrary.put("azkoja", R.raw.azkoja);
+        audioLibrary.put("az", R.raw.az);
+        audioLibrary.put("bale", R.raw.bale);
+        audioLibrary.put("chahaar", R.raw.chahaar);
+        audioLibrary.put("chekhabar", R.raw.chekhabar);
+        audioLibrary.put("chetoori", R.raw.chetoori);
+        audioLibrary.put("da", R.raw.da);
+        audioLibrary.put("do", R.raw.d_o);
+        audioLibrary.put("emrooz", R.raw.emrooz);
+        audioLibrary.put("esm", R.raw.esm);
+        audioLibrary.put("esmet", R.raw.esmet);
+        audioLibrary.put("farsi", R.raw.farsi);
+        audioLibrary.put("ghazaa", R.raw.ghazaa);
+        audioLibrary.put("haft", R.raw.haft);
+        audioLibrary.put("hasht", R.raw.hasht);
+        audioLibrary.put("in", R.raw.in);
+        audioLibrary.put("khoda", R.raw.khoda);
+        audioLibrary.put("khoobam", R.raw.khoobam);
+        audioLibrary.put("khoshvaqtam", R.raw.khoshvaqtam);
+        audioLibrary.put("kojaa", R.raw.kojaa);
+        audioLibrary.put("mamnoon", R.raw.mamnoon);
+        audioLibrary.put("na", R.raw.na);
+        audioLibrary.put("no", R.raw.no);
+        audioLibrary.put("panj", R.raw.panj);
+        audioLibrary.put("salaam", R.raw.salaam);
+        audioLibrary.put("salaamati", R.raw.salaamati);
+        audioLibrary.put("se3", R.raw.se3);
+        audioLibrary.put("shesh", R.raw.shesh);
+        audioLibrary.put("yek", R.raw.yek);
 
         List<Map.Entry<String, Integer>> audioList = new ArrayList<Map.Entry<String, Integer>>(audioLibrary.entrySet());
         Collections.shuffle(audioList);
@@ -106,47 +106,50 @@ public class FillinBlank extends AppCompatActivity {
         audioclip = findViewById(R.id.imageButton1);
         audioclip.setOnClickListener(v -> selectedSound.start());
 
-        HashMap<String, String> charMap = new HashMap<String, String>();
-        charMap.put("aleph",getString(R.string.aleph));
-        charMap.put("be", getString(R.string.be));
-        charMap.put("pe", getString(R.string.pe));
-        charMap.put("se", getString(R.string.te));
-        charMap.put("jim", getString(R.string.jim));
-        charMap.put("che", getString(R.string.che));
-        charMap.put("hejimi", getString(R.string.hejimi));
-        charMap.put("khe", getString(R.string.khe));
-        charMap.put("daal", getString(R.string.daal));
-        charMap.put("zaal", getString(R.string.zaal));
-        charMap.put("re", getString(R.string.re));
-        charMap.put("ze", getString(R.string.ze));
-        charMap.put("zhe", getString(R.string.zhe));
-        charMap.put("sin", getString(R.string.sin));
-        charMap.put("shin", getString(R.string.shin));
-        charMap.put("saad", getString(R.string.saad));
-        charMap.put("zaad", getString(R.string.zaad));
-        charMap.put("taa", getString(R.string.taa));
-        charMap.put("zaa", getString(R.string.zaa));
-        charMap.put("ein", getString(R.string.ein));
-        charMap.put("ghein", getString(R.string.ghein));
-        charMap.put("fe", getString(R.string.fe));
-        charMap.put("qaaf", getString(R.string.qaaf));
-        charMap.put("kaaf", getString(R.string.kaaf));
-        charMap.put("gaaf", getString(R.string.gaaf));
-        charMap.put("laam", getString(R.string.laam));
-        charMap.put("mim", getString(R.string.mim));
-        charMap.put("nun", getString(R.string.nun));
-        charMap.put("vaav", getString(R.string.vaav));
-        charMap.put("hedocheshm", getString(R.string.hedocheshm));
-        charMap.put("ye", getString(R.string.ye));
 
-        List<Map.Entry<String, String>> charList = new ArrayList<Map.Entry<String, String>>(charMap.entrySet());
+        HashMap<String, String> wordMap = new HashMap<String, String>();
+        wordMap.put("alaan",getString(R.string.alaan));
+        wordMap.put("anglisi",getString(R.string.anglisi));
+        wordMap.put("awb",getString(R.string.awb));
+        wordMap.put("azhastam",getString(R.string.az_hastam));
+        wordMap.put("azkoja",getString(R.string.azkoja));
+        wordMap.put("az",getString(R.string.az));
+        wordMap.put("bale",getString(R.string.bale));
+        wordMap.put("chahaar",getString(R.string.chahaar));
+        wordMap.put("chekhabar",getString(R.string.chekhabar));
+        wordMap.put("chetoori",getString(R.string.chetoori));
+        wordMap.put("da",getString(R.string.da));
+        wordMap.put("do",getString(R.string.d_o));
+        wordMap.put("emrooz",getString(R.string.emrooz));
+        wordMap.put("esm",getString(R.string.esm));
+        wordMap.put("esmet",getString(R.string.esmet));
+        wordMap.put("farsi",getString(R.string.farsi));
+        wordMap.put("ghazaa",getString(R.string.ghazaa));
+        wordMap.put("haft",getString(R.string.haft));
+        wordMap.put("hasht",getString(R.string.hasht));
+        wordMap.put("in",getString(R.string.in));
+        wordMap.put("khoda",getString(R.string.khoda));
+        wordMap.put("khoobam",getString(R.string.khoobam));
+        wordMap.put("khoshvaqtam",getString(R.string.khoshvaqtam));
+        wordMap.put("kojaa",getString(R.string.kojaa));
+        wordMap.put("mamnoon",getString(R.string.mamnoon));
+        wordMap.put("na",getString(R.string.na));
+        wordMap.put("no",getString(R.string.no));
+        wordMap.put("panj",getString(R.string.panj));
+        wordMap.put("salaam",getString(R.string.salaam));
+        wordMap.put("salaamati",getString(R.string.salaamati));
+        wordMap.put("se3",getString(R.string.se3));
+        wordMap.put("shesh",getString(R.string.shesh));
+        wordMap.put("yek",getString(R.string.yek));
 
-        //Shuffles the charLibrary ArrayList and selects the first four items
-        Collections.shuffle(charList);
-        String B08rdmSlct = charList.get(0).getValue();
-        String B09rdmSlct = charList.get(1).getValue();
-        String B10rdmSlct = charList.get(2).getValue();
-        String B11rdmSlct = charList.get(3).getValue();
+        List<Map.Entry<String, String>> wordList = new ArrayList<Map.Entry<String, String>>(wordMap.entrySet());
+
+        //Shuffles the wordLibrary ArrayList and selects the first four items
+        Collections.shuffle(wordList);
+        String B08rdmSlct = wordList.get(0).getValue();
+        String B09rdmSlct = wordList.get(1).getValue();
+        String B10rdmSlct = wordList.get(2).getValue();
+        String B11rdmSlct = wordList.get(3).getValue();
 
         //Creates 4 Button objects and links them to existing buttons
         //in the layout
@@ -157,7 +160,7 @@ public class FillinBlank extends AppCompatActivity {
         Button B05None = (Button) findViewById(R.id.button5);
 
         //Sets the text of the four buttons to the unique items selected
-        //randomly from the charLibrary ArrayList
+        //randomly from the wordLibrary ArrayList
         B08UL.setText(B08rdmSlct);
         B09UR.setText(B09rdmSlct);
         B10LL.setText(B10rdmSlct);
@@ -171,7 +174,7 @@ public class FillinBlank extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Snackbar response;
-                if (charList.get(0).getKey() == audioList.get(1).getKey()) {
+                if (wordList.get(0).getKey() == audioList.get(1).getKey()) {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
@@ -187,13 +190,11 @@ public class FillinBlank extends AppCompatActivity {
                 response.show();
             }
         });
-        //if correct PosAnsResp.show()
-        //if wrong NegAnsResp.show()
         B09UR.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Snackbar response;
-                if (charList.get(1).getKey() == audioList.get(1).getKey()) {
+                if (wordList.get(1).getKey() == audioList.get(1).getKey()) {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
@@ -213,7 +214,7 @@ public class FillinBlank extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Snackbar response;
-                if (charList.get(2).getKey() == audioList.get(1).getKey()) {
+                if (wordList.get(2).getKey() == audioList.get(1).getKey()) {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
@@ -233,7 +234,7 @@ public class FillinBlank extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Snackbar response;
-                if (charList.get(3).getKey() == audioList.get(1).getKey()) {
+                if (wordList.get(3).getKey() == audioList.get(1).getKey()) {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
@@ -253,10 +254,10 @@ public class FillinBlank extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Snackbar response;
-                if (!((charList.get(0).getKey() == audioList.get(1).getKey()) ||
-                        (charList.get(1).getKey() == audioList.get(1).getKey()) ||
-                        (charList.get(2).getKey() == audioList.get(1).getKey()) ||
-                        (charList.get(3).getKey() == audioList.get(1).getKey()))) {
+                if (!((wordList.get(0).getKey() == audioList.get(1).getKey()) ||
+                        (wordList.get(1).getKey() == audioList.get(1).getKey()) ||
+                        (wordList.get(2).getKey() == audioList.get(1).getKey()) ||
+                        (wordList.get(3).getKey() == audioList.get(1).getKey()))) {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
