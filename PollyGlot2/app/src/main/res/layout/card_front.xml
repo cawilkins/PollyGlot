@@ -15,9 +15,12 @@
         card_view:cardBackgroundColor="@color/card_background"
         card_view:cardCornerRadius="@dimen/card_album_radius">
 
+
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background = "@drawable/card_border">
+
 
             <TextView
                 android:id="@+id/symbol_title"
