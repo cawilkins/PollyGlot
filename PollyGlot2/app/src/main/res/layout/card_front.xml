@@ -21,7 +21,6 @@
             android:layout_height="match_parent"
             android:background = "@drawable/card_border">
 
-
             <TextView
                 android:id="@+id/symbol_title"
                 android:layout_width="match_parent"
