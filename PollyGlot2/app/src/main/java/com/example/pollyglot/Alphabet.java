@@ -2,6 +2,7 @@ package com.example.pollyglot;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -9,38 +10,10 @@ import android.widget.Button;
 
 public class Alphabet extends AppCompatActivity {
 
-    Button btnalef;
-    Button btnbe;
-    Button btnpe;
-    Button btnte;
-    Button btnse;
-    Button btnjim;
-    Button btnche;
-    Button btnhejimi;
-    Button btnkhe;
-    Button btndaal;
-    Button btnzaal;
-    Button btnre;
-    Button btnze;
-    Button btnzhe;
-    Button btnsin;
-    Button btnshin;
-    Button btnsaad;
-    Button btnzaad;
-    Button btntaa;
-    Button btnzaa;
-    Button btnein;
-    Button btnghein;
-    Button btnfe;
-    Button btnqaaf;
-    Button btnkaaf;
-    Button btngaaf;
-    Button btnlaam;
-    Button btnmim;
-    Button btnnun;
-    Button btnvaav;
-    Button btnhed;
-    Button btnye;
+    //Names of all the buttons on the grid
+    Button btnalef, btnbe, btnpe, btnte, btnse, btnjim, btnche, btnhejimi, btnkhe, btndaal, btnzaal,
+     btnre, btnze, btnzhe, btnsin, btnshin, btnsaad, btnzaad, btntaa, btnzaa, btnein, btnghein,
+     btnfe, btnqaaf, btnkaaf, btngaaf, btnlaam, btnmim, btnnun, btnvaav, btnhed, btnye, back;
 
 
     @Override
@@ -48,7 +21,8 @@ public class Alphabet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alphabet);
 
-        btnalef = findViewById(R.id.button41);
+
+        btnalef = findViewById(R.id.button41);      //attaches each button with the name of the button
         btnbe = findViewById(R.id.button42);
         btnpe = findViewById(R.id.button43);
         btnte = findViewById(R.id.button44);
@@ -80,8 +54,9 @@ public class Alphabet extends AppCompatActivity {
         btnvaav = findViewById(R.id.button70);
         btnhed = findViewById(R.id.button71);
         btnye = findViewById(R.id.button72);
+        back = findViewById(R.id.button5);
 
-        final MediaPlayer alefsound = MediaPlayer.create(this,R.raw.alef);
+        final MediaPlayer alefsound = MediaPlayer.create(this,R.raw.alef);  //Get the sound from the raw folder
         final MediaPlayer besound = MediaPlayer.create(this,R.raw.be);
         final MediaPlayer pesound = MediaPlayer.create(this,R.raw.pe);
         final MediaPlayer tesound = MediaPlayer.create(this,R.raw.te);
@@ -95,7 +70,7 @@ public class Alphabet extends AppCompatActivity {
         final MediaPlayer resound = MediaPlayer.create(this,R.raw.re);
         final MediaPlayer zesound = MediaPlayer.create(this,R.raw.ze);
         final MediaPlayer zhesound = MediaPlayer.create(this,R.raw.zhe);
-//        final MediaPlayer sinsound = MediaPlayer.create(this,R.raw.sin); //Missing this recording
+        final MediaPlayer sinsound = MediaPlayer.create(this,R.raw.sin);
         final MediaPlayer shinsound = MediaPlayer.create(this,R.raw.shin);
         final MediaPlayer saadsound = MediaPlayer.create(this,R.raw.saad);
         final MediaPlayer zaadsound = MediaPlayer.create(this,R.raw.zaad);
@@ -115,7 +90,7 @@ public class Alphabet extends AppCompatActivity {
         final MediaPlayer yesound = MediaPlayer.create(this,R.raw.ye);
 
 
-        btnalef.setOnClickListener(v -> alefsound.start());
+        btnalef.setOnClickListener(v -> alefsound.start());     //When the button is clicked, play the sound
         btnbe.setOnClickListener(v -> besound.start());
         btnpe.setOnClickListener(v -> pesound.start());
         btnte.setOnClickListener(v -> tesound.start());
@@ -129,7 +104,7 @@ public class Alphabet extends AppCompatActivity {
         btnre.setOnClickListener(v -> resound.start());
         btnze.setOnClickListener(v -> zesound.start());
         btnzhe.setOnClickListener(v -> zhesound.start());
-//        btnsin.setOnClickListener(v -> sinsound.start());
+        btnsin.setOnClickListener(v -> sinsound.start());
         btnshin.setOnClickListener(v -> shinsound.start());
         btnsaad.setOnClickListener(v -> saadsound.start());
         btnzaad.setOnClickListener(v -> zaadsound.start());
@@ -148,5 +123,9 @@ public class Alphabet extends AppCompatActivity {
         btnhed.setOnClickListener(v -> hedsound.start());
         btnye.setOnClickListener(v -> yesound.start());
 
+        back.setOnClickListener(v -> {      //When button is clicked, it goes back to the home screen
+            Intent intent = new Intent(Alphabet.this, MainActivity.class);
+            startActivity(intent);
+        });
     }
 }
