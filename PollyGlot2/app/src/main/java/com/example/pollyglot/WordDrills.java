@@ -27,18 +27,30 @@ public class WordDrills extends AppCompatActivity {
     Button B11LR;
     Button B05None;
 
+    //Method used to shuffle the AudioList and assign the new first item to the speaker button
+    //Accessed on page creation, as well as when a user clicks Continue after a correct answer
     private void loadAudio(List<Map.Entry<String, Integer>> audioListLoad) {
+        //Shuffles the provided List of Key/Value pairs
         Collections.shuffle(audioListLoad);
+        //Selects the new first item in the List's int value
         int audioSelection = audioListLoad.get(1).getValue();
+        //Prepares selected audio clip to be played
         final MediaPlayer selectedSound = MediaPlayer.create(this,audioSelection);
+        //Tells the speaker butter to listen for a click, and play the selected audio on click
         audioclip.setOnClickListener(v -> selectedSound.start());
     }
+
+    //Method used to shuffle the WordList and assign the new first four items to the answer buttons
+    //Accessed on page creation, as well as when a user clicks Continue after a correct answer
     private void loadWord(List<Map.Entry<String, String>> wordListLoad) {
+        //Shuffles the provided List of Key/Value pairs
         Collections.shuffle(wordListLoad);
+        //Selects the new first four items in the List's string values
         String B08rdmSlct = wordListLoad.get(0).getValue();
         String B09rdmSlct = wordListLoad.get(1).getValue();
         String B10rdmSlct = wordListLoad.get(2).getValue();
         String B11rdmSlct = wordListLoad.get(3).getValue();
+        //Sets the text of the four answer buttons to the selected strings
         B08UL.setText(B08rdmSlct);
         B09UR.setText(B09rdmSlct);
         B10LL.setText(B10rdmSlct);
@@ -50,8 +62,11 @@ public class WordDrills extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word_drills);
 
+        //Creates a Button object
         Button back;
+        //Links the new Button object to the Back button in the XML file
         back = findViewById(R.id.button12);
+        //On click, go back to main activity
         back.setOnClickListener(new View.OnClickListener() {//on click, go back to main activity
             @Override
             public void onClick(View v) {
@@ -60,8 +75,11 @@ public class WordDrills extends AppCompatActivity {
             }
         });
 
+        //Creates a Button object
         Button question;
+        //Links the new Button object to the ? button in the XML file
         question = findViewById(R.id.button13);
+        //On click, displays a dialog window providing instructions on how to use the activity
         question.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,6 +87,7 @@ public class WordDrills extends AppCompatActivity {
                 builder.setMessage("Click on the Speaker to play the audio.\n\nFrom the provided " +
                         "options, select the choice that best matches the sound.\n\nOr select None of the Above.");
                 builder.setTitle("Tips");
+                //Allows clocks outside of the window to cancel the dialog
                 builder.setCancelable(true);
                 builder.setNeutralButton("Close", new DialogInterface.OnClickListener(){
                     @Override
@@ -81,6 +100,7 @@ public class WordDrills extends AppCompatActivity {
             }
         });
 
+        //Creates a HashMap and loads it with the word audio files
         HashMap<String, Integer> audioLibrary = new HashMap<String, Integer>();
         audioLibrary.put("alaan", R.raw.alaan);
         audioLibrary.put("anglisi", R.raw.anglisi);
@@ -116,10 +136,16 @@ public class WordDrills extends AppCompatActivity {
         audioLibrary.put("shesh", R.raw.shesh);
         audioLibrary.put("yek", R.raw.yek);
 
+        //Adds the members of the HashMap to a List.
+        //This is done to allow the items to be shuffled and then consistently select
+        //items from the same position in the shuffled list.
         List<Map.Entry<String, Integer>> audioList = new ArrayList<Map.Entry<String, Integer>>(audioLibrary.entrySet());
         audioclip = findViewById(R.id.imageButton1);
+        //Calls the loadAudio method to shuffle the list then assign the new first item to
+        //the speaker button.
         loadAudio(audioList);
 
+        //Creates a HashMap and loads it with the word strings from resources
         HashMap<String, String> wordMap = new HashMap<String, String>();
         wordMap.put("alaan",getString(R.string.alaan));
         wordMap.put("anglisi",getString(R.string.anglisi));
@@ -155,6 +181,9 @@ public class WordDrills extends AppCompatActivity {
         wordMap.put("shesh",getString(R.string.shesh));
         wordMap.put("yek",getString(R.string.yek));
 
+        //Adds the members of the HashMap to a List.
+        //This is done to allow the items to be shuffled and then consistently select
+        //items from the same position in the shuffled list.
         List<Map.Entry<String, String>> wordList = new ArrayList<Map.Entry<String, String>>(wordMap.entrySet());
 
         //Creates 4 Button objects and links them to existing buttons
@@ -164,23 +193,35 @@ public class WordDrills extends AppCompatActivity {
         B10LL = findViewById(R.id.button10);
         B11LR = findViewById(R.id.button11);
         B05None = findViewById(R.id.button5);
+
+        //Calls the loadWord method to shuffle the list then assign the new first item to
+        //the speaker button.
         loadWord(wordList);
 
         //Creating a popup message to respond to user selection
+        //The comments for this onClickListener apply to the rest of the the onClickListeners
+        //Except where stated otherwise.
         B08UL.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                //Creates a new Snackbar object
                 Snackbar response;
+                //If the key strings between the two List items matches
                 if (wordList.get(0).getKey() == audioList.get(1).getKey()) {
+                    //Popup a congratulation and prompt user to continue.
+                    //User must click Continue to close the Snackbar popup
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
+                            //New audio and word strings are loaded.
                             loadAudio(audioList);
                             loadWord(wordList);
                         }
                     });
                 }
                 else {
+                    //If user clicks but it doesn't match, inform user in popup that
+                    //dismisses itself after a short interval.
                     response = Snackbar.make(v, "Not quite. Let's try that Again!", Snackbar.LENGTH_SHORT);
                 }
                 response.show();
@@ -247,6 +288,8 @@ public class WordDrills extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Snackbar response;
+                //If none of the key strings between the List items of the buttons and that
+                //of the Speaker button match.
                 if (!((wordList.get(0).getKey() == audioList.get(1).getKey()) ||
                         (wordList.get(1).getKey() == audioList.get(1).getKey()) ||
                         (wordList.get(2).getKey() == audioList.get(1).getKey()) ||
@@ -260,6 +303,8 @@ public class WordDrills extends AppCompatActivity {
                     });
                 }
                 else {
+                    //If one of the other four buttons has a key string that matches the
+                    //key string of the audiolist item linked to the speaker button.
                     response = Snackbar.make(v, "Not quite. Let's try that Again!", Snackbar.LENGTH_SHORT);
                 }
                 response.show();

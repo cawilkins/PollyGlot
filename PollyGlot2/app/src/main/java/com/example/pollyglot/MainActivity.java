@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     private Button dictionary;
     private Button flashcards;
     private Button alphabet;
-    private Button fillinblank;
+    private Button alphabetdrills;
     private Button worddrills;
 
     @Override
@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         dictionary = findViewById(R.id.button);
         flashcards = findViewById(R.id.button2);
         alphabet = findViewById(R.id.button3);
-        fillinblank = findViewById(R.id.button4);
+        alphabetdrills = findViewById(R.id.button4);
         worddrills = findViewById(R.id.button5);
 
         dictionary.setOnClickListener(new View.OnClickListener() {
@@ -46,10 +46,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        fillinblank.setOnClickListener(new View.OnClickListener() {
+        alphabetdrills.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FillinBlank.class);
+                Intent intent = new Intent(MainActivity.this, AlphabetDrills.class);
                 startActivity(intent);
             }
         });
