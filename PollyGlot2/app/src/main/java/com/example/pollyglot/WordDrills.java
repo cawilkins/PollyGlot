@@ -20,8 +20,30 @@ import java.util.List;
 import java.util.Map;
 
 public class WordDrills extends AppCompatActivity {
+    ImageButton audioclip;
+    Button B08UL;
+    Button B09UR;
+    Button B10LL;
+    Button B11LR;
+    Button B05None;
 
-
+    private void loadAudio(List<Map.Entry<String, Integer>> audioListLoad) {
+        Collections.shuffle(audioListLoad);
+        int audioSelection = audioListLoad.get(1).getValue();
+        final MediaPlayer selectedSound = MediaPlayer.create(this,audioSelection);
+        audioclip.setOnClickListener(v -> selectedSound.start());
+    }
+    private void loadWord(List<Map.Entry<String, String>> wordListLoad) {
+        Collections.shuffle(wordListLoad);
+        String B08rdmSlct = wordListLoad.get(0).getValue();
+        String B09rdmSlct = wordListLoad.get(1).getValue();
+        String B10rdmSlct = wordListLoad.get(2).getValue();
+        String B11rdmSlct = wordListLoad.get(3).getValue();
+        B08UL.setText(B08rdmSlct);
+        B09UR.setText(B09rdmSlct);
+        B10LL.setText(B10rdmSlct);
+        B11LR.setText(B11rdmSlct);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +52,6 @@ public class WordDrills extends AppCompatActivity {
 
         Button back;
         back = findViewById(R.id.button12);
-
         back.setOnClickListener(new View.OnClickListener() {//on click, go back to main activity
             @Override
             public void onClick(View v) {
@@ -41,7 +62,6 @@ public class WordDrills extends AppCompatActivity {
 
         Button question;
         question = findViewById(R.id.button13);
-
         question.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +80,6 @@ public class WordDrills extends AppCompatActivity {
                 alertDialog.show();
             }
         });
-
 
         HashMap<String, Integer> audioLibrary = new HashMap<String, Integer>();
         audioLibrary.put("alaan", R.raw.alaan);
@@ -98,14 +117,8 @@ public class WordDrills extends AppCompatActivity {
         audioLibrary.put("yek", R.raw.yek);
 
         List<Map.Entry<String, Integer>> audioList = new ArrayList<Map.Entry<String, Integer>>(audioLibrary.entrySet());
-        Collections.shuffle(audioList);
-
-        ImageButton audioclip;
-        int audioSelection = audioList.get(1).getValue();
-        final MediaPlayer selectedSound = MediaPlayer.create(this,audioSelection);
         audioclip = findViewById(R.id.imageButton1);
-        audioclip.setOnClickListener(v -> selectedSound.start());
-
+        loadAudio(audioList);
 
         HashMap<String, String> wordMap = new HashMap<String, String>();
         wordMap.put("alaan",getString(R.string.alaan));
@@ -144,32 +157,16 @@ public class WordDrills extends AppCompatActivity {
 
         List<Map.Entry<String, String>> wordList = new ArrayList<Map.Entry<String, String>>(wordMap.entrySet());
 
-        //Shuffles the wordLibrary ArrayList and selects the first four items
-        Collections.shuffle(wordList);
-        String B08rdmSlct = wordList.get(0).getValue();
-        String B09rdmSlct = wordList.get(1).getValue();
-        String B10rdmSlct = wordList.get(2).getValue();
-        String B11rdmSlct = wordList.get(3).getValue();
-
         //Creates 4 Button objects and links them to existing buttons
         //in the layout
-        Button B08UL = (Button) findViewById(R.id.button8);
-        Button B09UR = (Button) findViewById(R.id.button9);
-        Button B10LL = (Button) findViewById(R.id.button10);
-        Button B11LR = (Button) findViewById(R.id.button11);
-        Button B05None = (Button) findViewById(R.id.button5);
-
-        //Sets the text of the four buttons to the unique items selected
-        //randomly from the wordLibrary ArrayList
-        B08UL.setText(B08rdmSlct);
-        B09UR.setText(B09rdmSlct);
-        B10LL.setText(B10rdmSlct);
-        B11LR.setText(B11rdmSlct);
-
+        B08UL = findViewById(R.id.button8);
+        B09UR = findViewById(R.id.button9);
+        B10LL = findViewById(R.id.button10);
+        B11LR = findViewById(R.id.button11);
+        B05None = findViewById(R.id.button5);
+        loadWord(wordList);
 
         //Creating a popup message to respond to user selection
-
-
         B08UL.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -178,9 +175,8 @@ public class WordDrills extends AppCompatActivity {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
-                            Intent intent = getIntent();
-                            finish();
-                            startActivity(intent);
+                            loadAudio(audioList);
+                            loadWord(wordList);
                         }
                     });
                 }
@@ -198,9 +194,8 @@ public class WordDrills extends AppCompatActivity {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
-                            Intent intent = getIntent();
-                            finish();
-                            startActivity(intent);
+                            loadAudio(audioList);
+                            loadWord(wordList);
                         }
                     });
                 }
@@ -218,9 +213,8 @@ public class WordDrills extends AppCompatActivity {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
-                            Intent intent = getIntent();
-                            finish();
-                            startActivity(intent);
+                            loadAudio(audioList);
+                            loadWord(wordList);
                         }
                     });
                 }
@@ -238,9 +232,8 @@ public class WordDrills extends AppCompatActivity {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
-                            Intent intent = getIntent();
-                            finish();
-                            startActivity(intent);
+                            loadAudio(audioList);
+                            loadWord(wordList);
                         }
                     });
                 }
@@ -261,9 +254,8 @@ public class WordDrills extends AppCompatActivity {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
-                            Intent intent = getIntent();
-                            finish();
-                            startActivity(intent);
+                            loadAudio(audioList);
+                            loadWord(wordList);
                         }
                     });
                 }

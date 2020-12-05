@@ -18,11 +18,32 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 public class FillinBlank extends AppCompatActivity {
+    ImageButton audioclip;
+    Button B08UL;
+    Button B09UR;
+    Button B10LL;
+    Button B11LR;
+    Button B05None;
 
-
+    private void loadAudio(List<Map.Entry<String, Integer>> audioListLoad) {
+        Collections.shuffle(audioListLoad);
+        int audioSelection = audioListLoad.get(1).getValue();
+        final MediaPlayer selectedSound = MediaPlayer.create(this,audioSelection);
+        audioclip.setOnClickListener(v -> selectedSound.start());
+    }
+    private void loadChar(List<Map.Entry<String, String>> charListLoad) {
+        Collections.shuffle(charListLoad);
+        String B08rdmSlct = charListLoad.get(0).getValue();
+        String B09rdmSlct = charListLoad.get(1).getValue();
+        String B10rdmSlct = charListLoad.get(2).getValue();
+        String B11rdmSlct = charListLoad.get(3).getValue();
+        B08UL.setText(B08rdmSlct);
+        B09UR.setText(B09rdmSlct);
+        B10LL.setText(B10rdmSlct);
+        B11LR.setText(B11rdmSlct);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +52,6 @@ public class FillinBlank extends AppCompatActivity {
 
         Button back;
         back = findViewById(R.id.button12);
-
         back.setOnClickListener(new View.OnClickListener() {//on click, go back to main activity
             @Override
             public void onClick(View v) {
@@ -42,7 +62,6 @@ public class FillinBlank extends AppCompatActivity {
 
         Button question;
         question = findViewById(R.id.button13);
-
         question.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,7 +72,7 @@ public class FillinBlank extends AppCompatActivity {
                 builder.setCancelable(true);
                 builder.setNeutralButton("Close", new DialogInterface.OnClickListener(){
                     @Override
-                            public void onClick(DialogInterface dialog, int which){
+                    public void onClick(DialogInterface dialog, int which){
                         dialog.cancel();
                     }
                 });
@@ -61,7 +80,6 @@ public class FillinBlank extends AppCompatActivity {
                 alertDialog.show();
             }
         });
-
 
         HashMap<String, Integer> audioLibrary = new HashMap<String, Integer>();
         audioLibrary.put("aleph", R.raw.alef);
@@ -78,7 +96,7 @@ public class FillinBlank extends AppCompatActivity {
         audioLibrary.put("re", R.raw.re);
         audioLibrary.put("ze", R.raw.ze);
         audioLibrary.put("zhe", R.raw.zhe);
-        //audioLibrary.put("sin", R.raw.sin); //Missing this recording
+        audioLibrary.put("sin", R.raw.sin);
         audioLibrary.put("shin", R.raw.shin);
         audioLibrary.put("saad", R.raw.saad);
         audioLibrary.put("zaad", R.raw.zaad);
@@ -98,13 +116,8 @@ public class FillinBlank extends AppCompatActivity {
         audioLibrary.put("ye", R.raw.ye);
 
         List<Map.Entry<String, Integer>> audioList = new ArrayList<Map.Entry<String, Integer>>(audioLibrary.entrySet());
-        Collections.shuffle(audioList);
-
-        ImageButton audioclip;
-        int audioSelection = audioList.get(1).getValue();
-        final MediaPlayer selectedSound = MediaPlayer.create(this,audioSelection);
         audioclip = findViewById(R.id.imageButton1);
-        audioclip.setOnClickListener(v -> selectedSound.start());
+        loadAudio(audioList);
 
         HashMap<String, String> charMap = new HashMap<String, String>();
         charMap.put("aleph",getString(R.string.aleph));
@@ -141,43 +154,27 @@ public class FillinBlank extends AppCompatActivity {
 
         List<Map.Entry<String, String>> charList = new ArrayList<Map.Entry<String, String>>(charMap.entrySet());
 
-        //Shuffles the charLibrary ArrayList and selects the first four items
-        Collections.shuffle(charList);
-        String B08rdmSlct = charList.get(0).getValue();
-        String B09rdmSlct = charList.get(1).getValue();
-        String B10rdmSlct = charList.get(2).getValue();
-        String B11rdmSlct = charList.get(3).getValue();
-
         //Creates 4 Button objects and links them to existing buttons
         //in the layout
-        Button B08UL = (Button) findViewById(R.id.button8);
-        Button B09UR = (Button) findViewById(R.id.button9);
-        Button B10LL = (Button) findViewById(R.id.button10);
-        Button B11LR = (Button) findViewById(R.id.button11);
-        Button B05None = (Button) findViewById(R.id.button5);
-
-        //Sets the text of the four buttons to the unique items selected
-        //randomly from the charLibrary ArrayList
-        B08UL.setText(B08rdmSlct);
-        B09UR.setText(B09rdmSlct);
-        B10LL.setText(B10rdmSlct);
-        B11LR.setText(B11rdmSlct);
-
+        B08UL = findViewById(R.id.button8);
+        B09UR = findViewById(R.id.button9);
+        B10LL = findViewById(R.id.button10);
+        B11LR = findViewById(R.id.button11);
+        B05None = findViewById(R.id.button5);
+        loadChar(charList);
 
         //Creating a popup message to respond to user selection
-
-
         B08UL.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                //generateResponse(v, charList, audioList);
                 Snackbar response;
                 if (charList.get(0).getKey() == audioList.get(1).getKey()) {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
-                            Intent intent = getIntent();
-                            finish();
-                            startActivity(intent);
+                            loadAudio(audioList);
+                            loadChar(charList);
                         }
                     });
                 }
@@ -187,8 +184,6 @@ public class FillinBlank extends AppCompatActivity {
                 response.show();
             }
         });
-        //if correct PosAnsResp.show()
-        //if wrong NegAnsResp.show()
         B09UR.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -197,9 +192,8 @@ public class FillinBlank extends AppCompatActivity {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
-                            Intent intent = getIntent();
-                            finish();
-                            startActivity(intent);
+                            loadAudio(audioList);
+                            loadChar(charList);
                         }
                     });
                 }
@@ -217,9 +211,8 @@ public class FillinBlank extends AppCompatActivity {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
-                            Intent intent = getIntent();
-                            finish();
-                            startActivity(intent);
+                            loadAudio(audioList);
+                            loadChar(charList);
                         }
                     });
                 }
@@ -237,9 +230,8 @@ public class FillinBlank extends AppCompatActivity {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
-                            Intent intent = getIntent();
-                            finish();
-                            startActivity(intent);
+                            loadAudio(audioList);
+                            loadChar(charList);
                         }
                     });
                 }
@@ -260,9 +252,8 @@ public class FillinBlank extends AppCompatActivity {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
-                            Intent intent = getIntent();
-                            finish();
-                            startActivity(intent);
+                            loadAudio(audioList);
+                            loadChar(charList);
                         }
                     });
                 }
