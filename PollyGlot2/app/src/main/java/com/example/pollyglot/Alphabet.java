@@ -1,7 +1,9 @@
 package com.example.pollyglot;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -126,6 +128,21 @@ public class Alphabet extends AppCompatActivity {
         back.setOnClickListener(v -> {      //When button is clicked, it goes back to the home screen
             Intent intent = new Intent(Alphabet.this, MainActivity.class);
             startActivity(intent);
+        });
+        //Creates a Button object
+        Button question;
+        //Links the new Button object to the ? button in the XML file
+        question = findViewById(R.id.button14);
+        //On click, displays a dialog window providing instructions on how to use the activity
+        question.setOnClickListener(v -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(Alphabet.this);
+            builder.setMessage("Click on any button to play the sound of the letter.");
+            builder.setTitle("Tips");
+            //Allows clocks outside of the window to cancel the dialog
+            builder.setCancelable(true);
+            builder.setNeutralButton("Close", (dialog, which) -> dialog.cancel());
+            AlertDialog alertDialog = builder.create();
+            alertDialog.show();
         });
     }
 }
