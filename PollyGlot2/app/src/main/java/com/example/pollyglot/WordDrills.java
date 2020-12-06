@@ -31,7 +31,11 @@ public class WordDrills extends AppCompatActivity {
     //Accessed on page creation, as well as when a user clicks Continue after a correct answer
     private void loadAudio(List<Map.Entry<String, Integer>> audioListLoad) {
         //Shuffles the provided List of Key/Value pairs
-        Collections.shuffle(audioListLoad);
+        //The shuffling of just a subset and rotating is to help improve the chance of
+        //the answer being one of the four options rather than almost always 'none of the above'
+        //Without this, the chance is 4 out of 33, with it the chance is 4 out of 5.
+        Collections.rotate(audioListLoad,5);
+        Collections.shuffle(audioListLoad.subList(0,4));
         //Selects the new first item in the List's int value
         int audioSelection = audioListLoad.get(1).getValue();
         //Prepares selected audio clip to be played
@@ -44,7 +48,11 @@ public class WordDrills extends AppCompatActivity {
     //Accessed on page creation, as well as when a user clicks Continue after a correct answer
     private void loadWord(List<Map.Entry<String, String>> wordListLoad) {
         //Shuffles the provided List of Key/Value pairs
-        Collections.shuffle(wordListLoad);
+        //The shuffling of just a subset and rotating is to help improve the chance of
+        //the answer being one of the four options rather than almost always 'none of the above'
+        //Without this, the chance is 4 out of 33, with it the chance is 4 out of 5.
+        Collections.rotate(wordListLoad,5);
+        Collections.shuffle(wordListLoad.subList(0,4));
         //Selects the new first four items in the List's string values
         String B08rdmSlct = wordListLoad.get(0).getValue();
         String B09rdmSlct = wordListLoad.get(1).getValue();

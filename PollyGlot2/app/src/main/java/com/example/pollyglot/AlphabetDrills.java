@@ -31,7 +31,11 @@ public class AlphabetDrills extends AppCompatActivity {
     //Accessed on page creation, as well as when a user clicks Continue after a correct answer
     private void loadAudio(List<Map.Entry<String, Integer>> audioListLoad) {
         //Shuffles the provided List of Key/Value pairs
-        Collections.shuffle(audioListLoad);
+        //The shuffling of just a subset and rotating is to help improve the chance of
+        //the answer being one of the four options rather than almost always 'none of the above'
+        //Without this, the chance is 4 out of 32, with it the chance is 4 out of 5.
+        Collections.rotate(audioListLoad,5);
+        Collections.shuffle(audioListLoad.subList(0,4));
         //Selects the new first item in the List's int value
         int audioSelection = audioListLoad.get(0).getValue();
         //Prepares selected audio clip to be played
@@ -44,7 +48,11 @@ public class AlphabetDrills extends AppCompatActivity {
     //Accessed on page creation, as well as when a user clicks Continue after a correct answer
     private void loadChar(List<Map.Entry<String, String>> charListLoad) {
         //Shuffles the provided List of Key/Value pairs
-        Collections.shuffle(charListLoad);
+        //The shuffling of just a subset and rotating is to help improve the chance of
+        //the answer being one of the four options rather than almost always 'none of the above'
+        //Without this, the chance is 4 out of 32, with it the chance is 4 out of 5.
+        Collections.rotate(charListLoad,5);
+        Collections.shuffle(charListLoad.subList(0,4));
         //Selects the new first four items in the List's string values
         String B08rdmSlct = charListLoad.get(0).getValue();
         String B09rdmSlct = charListLoad.get(1).getValue();
@@ -204,7 +212,7 @@ public class AlphabetDrills extends AppCompatActivity {
                 //Creates a new Snackbar object
                 Snackbar response;
                 //If the key strings between the two List items matches
-                if (charList.get(0).getKey() == audioList.get(1).getKey()) {
+                if (charList.get(0).getKey() == audioList.get(0).getKey()) {
                     //Popup a congratulation and prompt user to continue.
                     //User must click Continue to close the Snackbar popup
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
@@ -228,7 +236,7 @@ public class AlphabetDrills extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Snackbar response;
-                if (charList.get(1).getKey() == audioList.get(1).getKey()) {
+                if (charList.get(1).getKey() == audioList.get(0).getKey()) {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
@@ -247,7 +255,7 @@ public class AlphabetDrills extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Snackbar response;
-                if (charList.get(2).getKey() == audioList.get(1).getKey()) {
+                if (charList.get(2).getKey() == audioList.get(0).getKey()) {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
@@ -266,7 +274,7 @@ public class AlphabetDrills extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Snackbar response;
-                if (charList.get(3).getKey() == audioList.get(1).getKey()) {
+                if (charList.get(3).getKey() == audioList.get(0).getKey()) {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
@@ -287,10 +295,10 @@ public class AlphabetDrills extends AppCompatActivity {
                 Snackbar response;
                 //If none of the key strings between the List items of the buttons and that
                 //of the Speaker button match.
-                if (!((charList.get(0).getKey() == audioList.get(1).getKey()) ||
-                        (charList.get(1).getKey() == audioList.get(1).getKey()) ||
-                        (charList.get(2).getKey() == audioList.get(1).getKey()) ||
-                        (charList.get(3).getKey() == audioList.get(1).getKey()))) {
+                if (!((charList.get(0).getKey() == audioList.get(0).getKey()) ||
+                        (charList.get(1).getKey() == audioList.get(0).getKey()) ||
+                        (charList.get(2).getKey() == audioList.get(0).getKey()) ||
+                        (charList.get(3).getKey() == audioList.get(0).getKey()))) {
                     response = Snackbar.make(v, "Correct! Great Job!", Snackbar.LENGTH_INDEFINITE).setAction("Continue", new View.OnClickListener(){
                         @Override
                         public void onClick(View v){
