@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterViewFlipper;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -14,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CardBackFragment extends Fragment {
+public class CardNumberBackFragment extends Fragment {
 
     private List<CardBackModel> cardsList;
     private CardsBackAdapter adapter;
@@ -22,11 +21,11 @@ public class CardBackFragment extends Fragment {
     private Button flipBtn;
     private int position;
 
-    public CardBackFragment() {
+    public CardNumberBackFragment() {
         // Required empty public constructor
     }
 
-    public CardBackFragment(int position) {
+    public CardNumberBackFragment(int position) {
         this.position = position;
     }
 
@@ -82,102 +81,35 @@ public class CardBackFragment extends Fragment {
     }
 
     private void InsertDataIntoCards() {
-        CardBackModel item = new CardBackModel("alef", "aa");
+        CardBackModel item = new CardBackModel("one", "yek");
         cardsList.add(item);
 
-        item = new CardBackModel("be", "b");
+        item = new CardBackModel("two", "do");
         cardsList.add(item);
 
-        item = new CardBackModel("pe", "p");
+        item = new CardBackModel("three", "se");
         cardsList.add(item);
 
-        item = new CardBackModel("te", "t");
+        item = new CardBackModel("four", "chahaar");
         cardsList.add(item);
 
-        item = new CardBackModel("se", "s");
+        item = new CardBackModel("five", "panj");
         cardsList.add(item);
 
-        item = new CardBackModel("jim", "j");
+        item = new CardBackModel("six", "shesh");
         cardsList.add(item);
 
-        item = new CardBackModel("che", "ch");
+        item = new CardBackModel("seven", "haft");
         cardsList.add(item);
 
-        item = new CardBackModel("hejimi", "h");
+        item = new CardBackModel("eight", "hasht");
         cardsList.add(item);
 
-        item = new CardBackModel("khe", "kh");
+        item = new CardBackModel("nine", "no");
         cardsList.add(item);
 
-        item = new CardBackModel("daal", "d");
+        item = new CardBackModel("ten", "da");
         cardsList.add(item);
-
-        item = new CardBackModel("zaal", "z");
-        cardsList.add(item);
-
-        item = new CardBackModel("re", "r");
-        cardsList.add(item);
-
-        item = new CardBackModel("ze", "z");
-        cardsList.add(item);
-
-        item = new CardBackModel("zhe", "zh");
-        cardsList.add(item);
-
-        item = new CardBackModel("sin", "s");
-        cardsList.add(item);
-
-        item = new CardBackModel("shin", "sh");
-        cardsList.add(item);
-
-        item = new CardBackModel("saad", "s");
-        cardsList.add(item);
-
-        item = new CardBackModel("zaad", "z");
-        cardsList.add(item);
-
-        item = new CardBackModel("taa", "t");
-        cardsList.add(item);
-
-        item = new CardBackModel("zaa", "z");
-        cardsList.add(item);
-
-        item = new CardBackModel("'", "ein");
-        cardsList.add(item);
-
-        item = new CardBackModel("ghein", "gh");
-        cardsList.add(item);
-
-        item = new CardBackModel("fe", "f");
-        cardsList.add(item);
-
-        item = new CardBackModel("qaaf", "q");
-        cardsList.add(item);
-
-        item = new CardBackModel("kaaf", "k");
-        cardsList.add(item);
-
-        item = new CardBackModel("gaaf", "g");
-        cardsList.add(item);
-
-        item = new CardBackModel("laam", "l");
-        cardsList.add(item);
-
-        item = new CardBackModel("mim", "m");
-        cardsList.add(item);
-
-        item = new CardBackModel("nun", "n");
-        cardsList.add(item);
-
-        item = new CardBackModel("vaav", "v/ /u");
-        cardsList.add(item);
-
-        item = new CardBackModel("hedocheshm", "h");
-        cardsList.add(item);
-
-        item = new CardBackModel("ye", "y/ /ii");
-        cardsList.add(item);
-        
     }
 
 }

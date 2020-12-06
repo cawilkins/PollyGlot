@@ -1,22 +1,19 @@
 package com.example.pollyglot;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterViewFlipper;
 import android.widget.Button;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CardFrontFragment extends Fragment {
+public class CardNumberFrontFragment extends Fragment {
 
     private List<CardFrontModel> cardsList;
     private CardsFrontAdapter adapter;
@@ -24,7 +21,7 @@ public class CardFrontFragment extends Fragment {
     private Button flipBtn;
     private int position;
 
-    public CardFrontFragment() {
+    public CardNumberFrontFragment() {
     }
 
     @Override
@@ -70,100 +67,34 @@ public class CardFrontFragment extends Fragment {
     }
 
     private void InsertDataIntoCards() {
-        CardFrontModel item = new CardFrontModel("ا");
+        CardFrontModel item = new CardFrontModel("۱ یک");
         cardsList.add(item);
 
-        item = new CardFrontModel("ب");
+        item = new CardFrontModel("۲ دو");
         cardsList.add(item);
 
-        item = new CardFrontModel("پ");
+        item = new CardFrontModel("۳ سه");
         cardsList.add(item);
 
-        item = new CardFrontModel("ت");
+        item = new CardFrontModel("۴ چهار");
         cardsList.add(item);
 
-        item = new CardFrontModel("ث");
+        item = new CardFrontModel("۵ پنج");
         cardsList.add(item);
 
-        item = new CardFrontModel("ج");
+        item = new CardFrontModel("۶ شش");
         cardsList.add(item);
 
-        item = new CardFrontModel("چ");
+        item = new CardFrontModel("۷ هفت");
         cardsList.add(item);
 
-        item = new CardFrontModel("ح");
+        item = new CardFrontModel("۸ هشت");
         cardsList.add(item);
 
-        item = new CardFrontModel("خ");
+        item = new CardFrontModel("۹ نو");
         cardsList.add(item);
 
-        item = new CardFrontModel("د");
-        cardsList.add(item);
-
-        item = new CardFrontModel("ذ");
-        cardsList.add(item);
-
-        item = new CardFrontModel("ر");
-        cardsList.add(item);
-
-        item = new CardFrontModel("ز");
-        cardsList.add(item);
-
-        item = new CardFrontModel("ژ");
-        cardsList.add(item);
-
-        item = new CardFrontModel("س");
-        cardsList.add(item);
-
-        item = new CardFrontModel("ش");
-        cardsList.add(item);
-
-        item = new CardFrontModel("ص");
-        cardsList.add(item);
-
-        item = new CardFrontModel("ض");
-        cardsList.add(item);
-
-        item = new CardFrontModel("ط");
-        cardsList.add(item);
-
-        item = new CardFrontModel("ظ");
-        cardsList.add(item);
-
-        item = new CardFrontModel("ع");
-        cardsList.add(item);
-
-        item = new CardFrontModel("غ");
-        cardsList.add(item);
-
-        item = new CardFrontModel("ف");
-        cardsList.add(item);
-
-        item = new CardFrontModel("ق");
-        cardsList.add(item);
-
-        item = new CardFrontModel("ک");
-        cardsList.add(item);
-
-        item = new CardFrontModel("گ");
-        cardsList.add(item);
-
-        item = new CardFrontModel( "ل");
-        cardsList.add(item);
-
-        item = new CardFrontModel("م");
-        cardsList.add(item);
-
-        item = new CardFrontModel("ن");
-        cardsList.add(item);
-
-        item = new CardFrontModel("و");
-        cardsList.add(item);
-
-        item = new CardFrontModel("ه");
-        cardsList.add(item);
-
-        item = new CardFrontModel("ی");
+        item = new CardFrontModel("۱۰ ده");
         cardsList.add(item);
     }
 
