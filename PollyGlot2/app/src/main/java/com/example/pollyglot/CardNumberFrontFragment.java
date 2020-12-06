@@ -67,34 +67,34 @@ public class CardNumberFrontFragment extends Fragment {
     }
 
     private void InsertDataIntoCards() {
-        CardFrontModel item = new CardFrontModel("۱ یک");
+        CardFrontModel item = new CardFrontModel(getString(R.string.yek));
         cardsList.add(item);
 
-        item = new CardFrontModel("۲ دو");
+        item = new CardFrontModel(getString(R.string.d_o));
         cardsList.add(item);
 
-        item = new CardFrontModel("۳ سه");
+        item = new CardFrontModel(getString(R.string.se3));
         cardsList.add(item);
 
-        item = new CardFrontModel("۴ چهار");
+        item = new CardFrontModel(getString(R.string.chahaar));
         cardsList.add(item);
 
-        item = new CardFrontModel("۵ پنج");
+        item = new CardFrontModel(getString(R.string.panj));
         cardsList.add(item);
 
-        item = new CardFrontModel("۶ شش");
+        item = new CardFrontModel(getString(R.string.shesh));
         cardsList.add(item);
 
-        item = new CardFrontModel("۷ هفت");
+        item = new CardFrontModel(getString(R.string.haft));
         cardsList.add(item);
 
-        item = new CardFrontModel("۸ هشت");
+        item = new CardFrontModel(getString(R.string.hasht));
         cardsList.add(item);
 
-        item = new CardFrontModel("۹ نو");
+        item = new CardFrontModel(getString(R.string.no));
         cardsList.add(item);
 
-        item = new CardFrontModel("۱۰ ده");
+        item = new CardFrontModel(getString(R.string.da));
         cardsList.add(item);
     }
 

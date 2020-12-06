@@ -70,100 +70,100 @@ public class CardAlphabetFrontFragment extends Fragment {
     }
 
     private void InsertDataIntoCards() {
-        CardFrontModel item = new CardFrontModel("ا");
+        CardFrontModel item = new CardFrontModel(getString(R.string.aleph));
         cardsList.add(item);
 
-        item = new CardFrontModel("ب");
+        item = new CardFrontModel(getString(R.string.be));
         cardsList.add(item);
 
-        item = new CardFrontModel("پ");
+        item = new CardFrontModel(getString(R.string.pe));
         cardsList.add(item);
 
-        item = new CardFrontModel("ت");
+        item = new CardFrontModel(getString(R.string.te));
         cardsList.add(item);
 
-        item = new CardFrontModel("ث");
+        item = new CardFrontModel(getString(R.string.se));
         cardsList.add(item);
 
-        item = new CardFrontModel("ج");
+        item = new CardFrontModel(getString(R.string.jim));
         cardsList.add(item);
 
-        item = new CardFrontModel("چ");
+        item = new CardFrontModel(getString(R.string.che));
         cardsList.add(item);
 
-        item = new CardFrontModel("ح");
+        item = new CardFrontModel(getString(R.string.hejimi));
         cardsList.add(item);
 
-        item = new CardFrontModel("خ");
+        item = new CardFrontModel(getString(R.string.khe));
         cardsList.add(item);
 
-        item = new CardFrontModel("د");
+        item = new CardFrontModel(getString(R.string.daal));
         cardsList.add(item);
 
-        item = new CardFrontModel("ذ");
+        item = new CardFrontModel(getString(R.string.zaal));
         cardsList.add(item);
 
-        item = new CardFrontModel("ر");
+        item = new CardFrontModel(getString(R.string.re));
         cardsList.add(item);
 
-        item = new CardFrontModel("ز");
+        item = new CardFrontModel(getString(R.string.ze));
         cardsList.add(item);
 
-        item = new CardFrontModel("ژ");
+        item = new CardFrontModel(getString(R.string.zhe));
         cardsList.add(item);
 
-        item = new CardFrontModel("س");
+        item = new CardFrontModel(getString(R.string.sin));
         cardsList.add(item);
 
-        item = new CardFrontModel("ش");
+        item = new CardFrontModel(getString(R.string.shin));
         cardsList.add(item);
 
-        item = new CardFrontModel("ص");
+        item = new CardFrontModel(getString(R.string.saad));
         cardsList.add(item);
 
-        item = new CardFrontModel("ض");
+        item = new CardFrontModel(getString(R.string.zaad));
         cardsList.add(item);
 
-        item = new CardFrontModel("ط");
+        item = new CardFrontModel(getString(R.string.taa));
         cardsList.add(item);
 
-        item = new CardFrontModel("ظ");
+        item = new CardFrontModel(getString(R.string.zaa));
         cardsList.add(item);
 
-        item = new CardFrontModel("ع");
+        item = new CardFrontModel(getString(R.string.ein));
         cardsList.add(item);
 
-        item = new CardFrontModel("غ");
+        item = new CardFrontModel(getString(R.string.ghein));
         cardsList.add(item);
 
-        item = new CardFrontModel("ف");
+        item = new CardFrontModel(getString(R.string.fe));
         cardsList.add(item);
 
-        item = new CardFrontModel("ق");
+        item = new CardFrontModel(getString(R.string.qaaf));
         cardsList.add(item);
 
-        item = new CardFrontModel("ک");
+        item = new CardFrontModel(getString(R.string.kaaf));
         cardsList.add(item);
 
-        item = new CardFrontModel("گ");
+        item = new CardFrontModel(getString(R.string.gaaf));
         cardsList.add(item);
 
-        item = new CardFrontModel( "ل");
+        item = new CardFrontModel(getString(R.string.laam));
         cardsList.add(item);
 
-        item = new CardFrontModel("م");
+        item = new CardFrontModel(getString(R.string.mim));
         cardsList.add(item);
 
-        item = new CardFrontModel("ن");
+        item = new CardFrontModel(getString(R.string.nun));
         cardsList.add(item);
 
-        item = new CardFrontModel("و");
+        item = new CardFrontModel(getString(R.string.vaav));
         cardsList.add(item);
 
-        item = new CardFrontModel("ه");
+        item = new CardFrontModel(getString(R.string.hedocheshm));
         cardsList.add(item);
 
-        item = new CardFrontModel("ی");
+        item = new CardFrontModel(getString(R.string.ye));
         cardsList.add(item);
     }
 

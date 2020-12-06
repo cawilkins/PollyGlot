@@ -67,52 +67,52 @@ public class CardPhraseFrontFragment extends Fragment {
     }
 
     private void InsertDataIntoCards() {
-        CardFrontModel item = new CardFrontModel("سلام");
+        CardFrontModel item = new CardFrontModel(getString(R.string.salaam));
         cardsList.add(item);
 
-        item = new CardFrontModel("بله");
+        item = new CardFrontModel(getString(R.string.bale));
         cardsList.add(item);
 
-        item = new CardFrontModel("نه");
+        item = new CardFrontModel(getString(R.string.na));
         cardsList.add(item);
 
-        item = new CardFrontModel("اسم");
+        item = new CardFrontModel(getString(R.string.esm));
         cardsList.add(item);
 
-        item = new CardFrontModel("این");
+        item = new CardFrontModel(getString(R.string.in));
         cardsList.add(item);
 
         item = new CardFrontModel("آن");
         cardsList.add(item);
 
-        item = new CardFrontModel("کجا");
+        item = new CardFrontModel(getString(R.string.kojaa));
         cardsList.add(item);
 
-        item = new CardFrontModel("از");
+        item = new CardFrontModel(getString(R.string.az));
         cardsList.add(item);
 
-        item = new CardFrontModel("الان");
+        item = new CardFrontModel(getString(R.string.alaan));
         cardsList.add(item);
 
-        item = new CardFrontModel("آب");
+        item = new CardFrontModel(getString(R.string.awb));
         cardsList.add(item);
 
-        item = new CardFrontModel("غذا");
+        item = new CardFrontModel(getString(R.string.ghazaa));
         cardsList.add(item);
 
-        item = new CardFrontModel("امروز");
+        item = new CardFrontModel(getString(R.string.emrooz));
         cardsList.add(item);
 
-        item = new CardFrontModel("چطوری؟");
+        item = new CardFrontModel(getString(R.string.chetoori));
         cardsList.add(item);
 
-        item = new CardFrontModel("ممنون");
+        item = new CardFrontModel(getString(R.string.mamnoon));
         cardsList.add(item);
 
         item = new CardFrontModel("خدا حافظ");
         cardsList.add(item);
 
-        item = new CardFrontModel("خوبم");
+        item = new CardFrontModel(getString(R.string.khoobam));
         cardsList.add(item);
 
         item = new CardFrontModel("اسمت چیست؟");
@@ -133,13 +133,13 @@ public class CardPhraseFrontFragment extends Fragment {
         item = new CardFrontModel("انگلیسی میدونی؟");
         cardsList.add(item);
 
-        item = new CardFrontModel("چه خبر؟");
+        item = new CardFrontModel(getString(R.string.chekhabar));
         cardsList.add(item);
 
-        item = new CardFrontModel("سلامتی");
+        item = new CardFrontModel(getString(R.string.salaamati));
         cardsList.add(item);
 
-        item = new CardFrontModel("خوشوقتم");
+        item = new CardFrontModel(getString(R.string.khoshvaqtam));
         cardsList.add(item);
     }
 
